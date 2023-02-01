@@ -23,7 +23,7 @@ namespace Blazor.ECharts
         public JsInterop(IJSRuntime jsRuntime)
         {
             moduleTask = new(() => jsRuntime.InvokeAsync<IJSObjectReference>(
-               "import", "./_content/Blazor.ECharts/core.js").AsTask());
+               "import", "/_content/Blazor.ECharts/core.js").AsTask());
         }
 
         public async ValueTask<string> Prompt(string message)
@@ -33,14 +33,14 @@ namespace Blazor.ECharts
         }
 
         /// <summary>
-        /// ³õÊ¼»¯Echarts
+        /// åˆå§‹åŒ–Echarts
         /// </summary>
-        /// <param name="id">EChartsÈİÆ÷ID</param>
-        /// <param name="theme">Ö÷Ìâ</param>
+        /// <param name="id">EChartså®¹å™¨ID</param>
+        /// <param name="theme">ä¸»é¢˜</param>
         /// <returns></returns>
         public async ValueTask<IJSObjectReference> InitChart(string id, string theme = "light")
         {
-            if (string.IsNullOrWhiteSpace(id)) throw new ArgumentNullException(nameof(id), "echarts¿Ø¼şid²»ÄÜÎª¿Õ");
+            if (string.IsNullOrWhiteSpace(id)) throw new ArgumentNullException(nameof(id), "echartsæ§ä»¶idä¸èƒ½ä¸ºç©º");
             var module = await moduleTask.Value;
             return await module.InvokeAsync<IJSObjectReference>("echartsFunctions.initChart", id, theme);
         }
@@ -50,11 +50,11 @@ namespace Blazor.ECharts
             await module.InvokeVoidAsync("echartsFunctions.registerMap", name, svg);
         }
         /// <summary>
-        /// ÅäÖÃEcharts²ÎÊı
+        /// é…ç½®Echartså‚æ•°
         /// </summary>
-        /// <param name="id">EChartsÈİÆ÷ID</param>
-        /// <param name="theme">Ö÷Ìâ</param>
-        /// <param name="option">²ÎÊı</param>
+        /// <param name="id">EChartså®¹å™¨ID</param>
+        /// <param name="theme">ä¸»é¢˜</param>
+        /// <param name="option">å‚æ•°</param>
         /// <returns></returns>
         public async Task SetupChart<T>(string id, string theme, EChartsOption<T> option, bool notMerge = false)
         {
@@ -62,16 +62,16 @@ namespace Blazor.ECharts
         }
 
         /// <summary>
-        /// ÅäÖÃEcharts²ÎÊı
+        /// é…ç½®Echartså‚æ•°
         /// </summary>
-        /// <param name="id">EChartsÈİÆ÷ID</param>
-        /// <param name="theme">Ö÷Ìâ</param>
-        /// <param name="option">²ÎÊı</param>
+        /// <param name="id">EChartså®¹å™¨ID</param>
+        /// <param name="theme">ä¸»é¢˜</param>
+        /// <param name="option">å‚æ•°</param>
         /// <returns></returns>
         public async Task SetupChart(string id, string theme, string option, bool notMerge = false)
         {
-            if (string.IsNullOrWhiteSpace(id)) throw new ArgumentNullException(nameof(id), "echarts¿Ø¼şid²»ÄÜÎª¿Õ");
-            if (option == null) throw new ArgumentNullException(nameof(option), "echarts²ÎÊı²»ÄÜÎª¿Õ");
+            if (string.IsNullOrWhiteSpace(id)) throw new ArgumentNullException(nameof(id), "echartsæ§ä»¶idä¸èƒ½ä¸ºç©º");
+            if (option == null) throw new ArgumentNullException(nameof(option), "echartså‚æ•°ä¸èƒ½ä¸ºç©º");
             if (string.IsNullOrWhiteSpace(theme)) theme = "light";
             var module = await moduleTask.Value;
             try
@@ -88,14 +88,14 @@ namespace Blazor.ECharts
         }
 
         /// <summary>
-        /// ×ÔÊÊÓ¦
+        /// è‡ªé€‚åº”
         /// </summary>
-        /// <param name="id">EChartsÈİÆ÷ID</param>
+        /// <param name="id">EChartså®¹å™¨ID</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public async Task Resize(string id)
         {
-            if (string.IsNullOrWhiteSpace(id)) throw new ArgumentNullException(nameof(id), "echarts¿Ø¼şid²»ÄÜÎª¿Õ");
+            if (string.IsNullOrWhiteSpace(id)) throw new ArgumentNullException(nameof(id), "echartsæ§ä»¶idä¸èƒ½ä¸ºç©º");
             var module = await moduleTask.Value;
             await module.InvokeVoidAsync("echartsFunctions.resize", id);
         }
@@ -107,7 +107,7 @@ namespace Blazor.ECharts
         }
 #nullable enable
         /// <summary>
-        /// Í¸Ã÷´«µİ
+        /// é€æ˜ä¼ é€’
         /// </summary>
         /// <param name="identifier"></param>
         /// <param name="args"></param>
