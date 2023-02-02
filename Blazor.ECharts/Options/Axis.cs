@@ -1,4 +1,4 @@
-﻿using Blazor.ECharts.Options.Enum;
+using Blazor.ECharts.Options.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -107,7 +107,7 @@ namespace Blazor.ECharts.Options
         /// <summary>
         /// x 轴的位置。
         /// </summary>
-        public PositionX? Position { set; get; }
+        public string Position { set; get; }
     }
     public record YAxis : Axis
     {
@@ -115,7 +115,7 @@ namespace Blazor.ECharts.Options
         /// <summary>
         /// y 轴的位置。
         /// </summary>
-        public PositionY? Position { set; get; }
+        public string Position { set; get; }
     }
     public class AxisTick
     {
@@ -131,6 +131,10 @@ namespace Blazor.ECharts.Options
         public object Formatter { set; get; }
 
         public bool? Show { set; get; }
+
+        public bool? HideOverlap { set; get; }
+
+        public string FontFamily { set; get; }
 
         /// <summary>
         /// 刻度标签旋转的角度，在类目轴的类目标签显示不下的时候可以通过旋转防止标签之间重叠。

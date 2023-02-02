@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,5 +20,9 @@ namespace Blazor.ECharts.Options.Series.Candlestick
         public MarkLine MarkLine { set; get; }
 
         public MarkPoint MarkPoint { set; get; }
+
+        public Encode Encode { set; get; }
+
+        public List<Dimension> Dimensions { set; get; }
     }
 }

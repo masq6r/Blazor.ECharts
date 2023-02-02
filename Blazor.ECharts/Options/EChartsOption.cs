@@ -1,4 +1,4 @@
-﻿using Blazor.ECharts.Options.Series;
+using Blazor.ECharts.Options.Series;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,7 +65,7 @@ namespace Blazor.ECharts.Options
         /// dataZoom 组件 用于区域缩放，从而能自由关注细节的数据信息，或者概览数据整体，或者去除离群点的影响。
         /// <para>点击<see href="https://www.echartsjs.com/zh/option.html#dataZoom ">此处</see>查看详细设置</para>
         /// </summary>
-        public List<object> DataZoom { set; get; }
+        public List<DataZoom> DataZoom { set; get; }
 
         /// <summary>
         /// 调色盘颜色列表。如果系列没有设置颜色，则会依次循环从该列表中取颜色作为系列颜色。

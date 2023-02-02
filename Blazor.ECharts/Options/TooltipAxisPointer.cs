@@ -1,4 +1,4 @@
-﻿using Blazor.ECharts.Options.Enum;
+using Blazor.ECharts.Options.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,5 +62,7 @@ namespace Blazor.ECharts.Options
         /// 文本标签的背景颜色，默认是和 axis.axisLine.lineStyle.color 相同。
         /// </summary>
         public string BackgroundColor { set; get; }
+
+        public object Formatter { set; get; }
     }
 }

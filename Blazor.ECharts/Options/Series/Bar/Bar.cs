@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,5 +40,7 @@ namespace Blazor.ECharts.Options.Series.Bar
         public string BarWidth { get; set; }
 
         public Encode Encode { get; set; }
+
+        public Emphasis Emphasis { set; get; }
     }
 }

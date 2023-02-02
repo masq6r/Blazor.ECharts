@@ -1,4 +1,4 @@
-﻿using Blazor.ECharts.Options.Enum;
+using Blazor.ECharts.Options.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,5 +58,7 @@ namespace Blazor.ECharts.Options.Series
         /// 阴影垂直方向上的偏移距离。
         /// </summary>
         public int? ShadowOffsetY { set; get; }
+
+        public double? Opacity { set; get;}
     }
 }
