@@ -58,7 +58,14 @@ namespace Blazor.ECharts
         /// <returns></returns>
         public async Task SetupChart<T>(string id, string theme, EChartsOption<T> option, bool notMerge = false)
         {
-            await SetupChart(id, theme, option.ToString(), notMerge);
+            var mergeOpt = new MergeOption();
+            mergeOpt.NotMerge = notMerge;
+            await SetupChart(id, theme, option.ToString(), mergeOpt);
+        }
+
+        public async Task SetupChart<T>(string id, string theme, EChartsOption<T> option, MergeOption mergeOpt)
+        {
+            await SetupChart(id, theme, option.ToString(), mergeOpt);
         }
 
         /// <summary>
@@ -70,20 +77,28 @@ namespace Blazor.ECharts
         /// <returns></returns>
         public async Task SetupChart(string id, string theme, string option, bool notMerge = false)
         {
+            var mergeOpt = new MergeOption();
+            mergeOpt.NotMerge = notMerge;
+            await SetupChart(id, theme, option.ToString(), mergeOpt);
+        }
+
+        public async Task SetupChart(string id, string theme, string option, MergeOption opt)
+        {
             if (string.IsNullOrWhiteSpace(id)) throw new ArgumentNullException(nameof(id), "echarts控件id不能为空");
             if (option == null) throw new ArgumentNullException(nameof(option), "echarts参数不能为空");
             if (string.IsNullOrWhiteSpace(theme)) theme = "light";
             var module = await moduleTask.Value;
+            var optString = JsonSerializer.Serialize(opt);
             try
             {
-                await module.InvokeVoidAsync("echartsFunctions.setupChart", id, theme, option, notMerge);
+                await module.InvokeVoidAsync("echartsFunctions.setupChart", id, theme, option, optString);
             }
             catch
             {
                 Console.WriteLine("id:" + id);
                 Console.WriteLine("theme:" + theme);
                 Console.WriteLine("option:" + option);
-                Console.WriteLine("notMerge:" + notMerge);
+                Console.WriteLine("notMerge:" + optString);
             }
         }
 

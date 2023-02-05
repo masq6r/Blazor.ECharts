@@ -32,12 +32,13 @@ export class echartsFunctions {
     }
     static setupChart(id, theme, option, notMerge) {
         let opt = eval('(' + option + ')');
+        let mergeOpt = eval('(' + notMerge + ')');
         let chart = this.getChart(id);
         if (chart === null) {
             chart = this.initChart(id, theme);
         }
         chart.hideLoading();
-        chart.setOption(opt, notMerge);
+        chart.setOption(opt, mergeOpt);
     }
     static on(id, eventType, dotnetHelper) {
         let chart = this.getChart(id);

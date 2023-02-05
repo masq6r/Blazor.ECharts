@@ -43,6 +43,8 @@ namespace Blazor.ECharts
         public JsInterop JsInterop { get; set; }
         [Parameter]
         public Func<object, Task> OnRenderCompleted { get; set; }
+        [Parameter]
+        public MergeOption MergeOption { get; set; }
 
         /// <summary>
         /// 事件类型.
@@ -136,9 +138,9 @@ namespace Blazor.ECharts
                     await JsInterop.SetupChart(Id, Theme, output);
             }
             else if (!string.IsNullOrWhiteSpace(OptionRaw))
-                await JsInterop.SetupChart(Id, Theme, OptionRaw);
+                await JsInterop.SetupChart(Id, Theme, OptionRaw, MergeOption);
             else
-                await JsInterop.SetupChart(Id, Theme, Option);
+                await JsInterop.SetupChart(Id, Theme, Option, MergeOption);
 
             // 事件
             if (EventTypes.Count > 0 && OnEventCallback.HasDelegate && !hasBindEvent)
