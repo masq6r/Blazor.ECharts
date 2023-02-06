@@ -12,6 +12,8 @@ namespace Blazor.ECharts.Options
     /// </summary>
     public record Axis
     {
+        public string Id { set; get; }
+
         /// <summary>
         /// 坐标轴名称。
         /// </summary>
@@ -100,6 +102,8 @@ namespace Blazor.ECharts.Options
         public AxisTick AxisTick { set; get; }
 
         public SplitArea SplitArea { set; get; }
+
+        public bool Show { set; get; }
     }
     public record XAxis : Axis
     {

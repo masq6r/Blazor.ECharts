@@ -1,4 +1,4 @@
-﻿using Blazor.ECharts.Options.Enum;
+using Blazor.ECharts.Options.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -165,5 +165,7 @@ namespace Blazor.ECharts.Options.Series.Line
         /// 图表标线。
         /// </summary>
         public MarkLine MarkLine { set; get; }
+
+        public Encode Encode { set; get; }
     }
 }

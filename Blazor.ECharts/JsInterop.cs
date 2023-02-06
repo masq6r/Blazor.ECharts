@@ -58,9 +58,7 @@ namespace Blazor.ECharts
         /// <returns></returns>
         public async Task SetupChart<T>(string id, string theme, EChartsOption<T> option, bool notMerge = false)
         {
-            var mergeOpt = new MergeOption();
-            mergeOpt.NotMerge = notMerge;
-            await SetupChart(id, theme, option.ToString(), mergeOpt);
+            await SetupChart(id, theme, option.ToString(), new MergeOption());
         }
 
         public async Task SetupChart<T>(string id, string theme, EChartsOption<T> option, MergeOption mergeOpt)
@@ -77,9 +75,21 @@ namespace Blazor.ECharts
         /// <returns></returns>
         public async Task SetupChart(string id, string theme, string option, bool notMerge = false)
         {
-            var mergeOpt = new MergeOption();
-            mergeOpt.NotMerge = notMerge;
-            await SetupChart(id, theme, option.ToString(), mergeOpt);
+            if (string.IsNullOrWhiteSpace(id)) throw new ArgumentNullException(nameof(id), "echarts控件id不能为空");
+            if (option == null) throw new ArgumentNullException(nameof(option), "echarts参数不能为空");
+            if (string.IsNullOrWhiteSpace(theme)) theme = "light";
+            var module = await moduleTask.Value;
+            try
+            {
+                await module.InvokeVoidAsync("echartsFunctions.setupChart", id, theme, option, notMerge);
+            }
+            catch
+            {
+                Console.WriteLine("id:" + id);
+                Console.WriteLine("theme:" + theme);
+                Console.WriteLine("option:" + option);
+                Console.WriteLine("notMerge:" + notMerge);
+            }
         }
 
         public async Task SetupChart(string id, string theme, string option, MergeOption opt)
@@ -88,7 +98,7 @@ namespace Blazor.ECharts
             if (option == null) throw new ArgumentNullException(nameof(option), "echarts参数不能为空");
             if (string.IsNullOrWhiteSpace(theme)) theme = "light";
             var module = await moduleTask.Value;
-            var optString = JsonSerializer.Serialize(opt);
+            var optString = EChartsOptionSerializer.Default.Serialize(opt);
             try
             {
                 await module.InvokeVoidAsync("echartsFunctions.setupChart", id, theme, option, optString);

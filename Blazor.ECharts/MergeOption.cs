@@ -8,8 +8,6 @@ namespace Blazor.ECharts
 {
     public class MergeOption
     {
-        public bool NotMerge { get; set; }
         public IEnumerable<string> ReplaceMerge { get; set; }
-        public bool LazyUpdate { get; set; }
     }
 }
