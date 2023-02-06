@@ -15,7 +15,7 @@ namespace Blazor.ECharts
 {
     public class ComponentBase<T> : ComponentBase, IAsyncDisposable where T : class
     {
-        protected string Id = "echerts_" + Guid.NewGuid().ToString("N");
+        public string Id = "echerts_" + Guid.NewGuid().ToString("N");
         private DotNetObjectReference<ComponentBase<T>> _objectReference;
         /// <summary>
         /// 主题
