@@ -87,6 +87,13 @@ export class echartsFunctions {
         this.debounceResize.splice(objReference._id, 1);
     }
 
+    static dispatchAction(id, act) {
+        let opt = eval("(" + act + ")");
+        let chart = this.getChart(id);
+        chart.dispatchAction(opt);
+        console.log(opt);
+    }
+
     /**
      * @desc  函数防抖---“立即执行版本” 和 “非立即执行版本” 的组合版本
      * @param  func 需要执行的函数

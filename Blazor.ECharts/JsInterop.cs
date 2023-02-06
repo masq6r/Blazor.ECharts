@@ -112,6 +112,22 @@ namespace Blazor.ECharts
             }
         }
 
+        public async Task DispatchAction(string id, EChartsDispatchAction act)
+        {
+            var module = await moduleTask.Value;
+            var actString = EChartsOptionSerializer.Default.Serialize(act);
+            try
+            {
+                await module.InvokeVoidAsync("echartsFunctions.dispatchAction", id, actString);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("id:" + id);
+                Console.WriteLine("action:" + actString);
+                Console.WriteLine(ex);
+            }
+        }
+
         /// <summary>
         /// 自适应
         /// </summary>
