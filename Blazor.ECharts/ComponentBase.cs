@@ -141,7 +141,6 @@ namespace Blazor.ECharts
                 await JsInterop.SetupChart(Id, Theme, OptionRaw, MergeOption);
             else
                 await JsInterop.SetupChart(Id, Theme, Option, MergeOption);
-            Console.WriteLine(Id);
 
             // 事件
             if (EventTypes.Count > 0 && OnEventCallback.HasDelegate && !hasBindEvent)

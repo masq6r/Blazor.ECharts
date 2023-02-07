@@ -91,7 +91,6 @@ export class echartsFunctions {
         let opt = eval("(" + act + ")");
         let chart = this.getChart(id);
         chart.dispatchAction(opt);
-        console.log(opt);
     }
 
     /**
