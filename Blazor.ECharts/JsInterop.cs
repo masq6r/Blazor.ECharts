@@ -128,6 +128,39 @@ namespace Blazor.ECharts
             }
         }
 
+        public async Task SetTheme<T>(string id, string theme, EChartsOption<T> option, MergeOption mergeOpt)
+        {
+            var module = await moduleTask.Value;
+            var optString = EChartsOptionSerializer.Default.Serialize(option);
+            var mergeString = EChartsOptionSerializer.Default.Serialize(mergeOpt);
+            try
+            {
+                await module.InvokeVoidAsync("echartsFunctions.setTheme", id, theme, optString, mergeString).ConfigureAwait(false);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("id:" + id);
+                Console.WriteLine(ex);
+            }
+        }
+
+        public async Task RegisterThemes(IEnumerable<ThemeOption> themes)
+        {
+            var module = await moduleTask.Value;
+            try
+            {
+                foreach (var theme in themes)
+                {
+                    var str = EChartsOptionSerializer.Default.Serialize(theme);
+                    await module.InvokeVoidAsync("echartsFunctions.registerTheme", theme.ThemeName, str);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Failed to register themes: \n" + ex);
+            }
+        }
+
         /// <summary>
         /// 自适应
         /// </summary>

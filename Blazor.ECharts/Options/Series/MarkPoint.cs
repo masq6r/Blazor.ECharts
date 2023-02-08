@@ -1,4 +1,4 @@
-﻿using Blazor.ECharts.Options.Enum;
+using Blazor.ECharts.Options.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +22,7 @@ namespace Blazor.ECharts.Options.Series
         public Label Label { set; get; }
 
         public Tooltip Tooltip { set; get; }
+        public Emphasis Emphasis { set; get; }
     }
     /// <summary>
     /// 标注的数据数组。每个数组项是一个对象，有下面几种方式指定标注的位置。

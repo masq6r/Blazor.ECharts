@@ -1,4 +1,5 @@
-﻿using Blazor.ECharts.Options.Enum;
+using Blazor.ECharts.Options.Enum;
+using Blazor.ECharts.Options.Series;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -72,6 +73,8 @@ namespace Blazor.ECharts.Options
         /// <para>也可以不在这里指定，而是在 brush.toolbox 中指定。</para>
         /// </summary>
         public FeatureBrush Brush { set; get; }
+        public Emphasis Emphasis { set; get; }
+        public IconStyle IconStyle { set; get; }
     }
 
     public class FeatureBrush

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +13,7 @@ namespace Blazor.ECharts.Options.Series.Map
 
         public string MapType { set; get; }
         public Label Label { set; get; }
+        public ItemStyle ItemStyle { set; get; }
 
         /// <summary>
         /// 自定义地区的名称映射

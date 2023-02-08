@@ -1,4 +1,4 @@
-﻿using Blazor.ECharts.Options.Enum;
+using Blazor.ECharts.Options.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,5 +28,9 @@ namespace Blazor.ECharts.Options.Series.Graph
         public Label EdgeLabel { get; set; }
         public List<GraphLink> Links { get; set; }
         public LineStyle LineStyle { get; set; }
+        public ItemStyle ItemStyle { get; set; }
+        public string Symbol { set; get; }
+        public IEnumerable<string> Color { set; get; }
+        public object Smooth  { set; get; }
     }
 }

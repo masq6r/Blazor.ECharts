@@ -22,7 +22,7 @@ namespace Blazor.ECharts.Options.Series
         /// </summary>
         public object BorderColor { set; get; }
 
-        public int? BorderWidth { set; get; }
+        public double? BorderWidth { set; get; }
 
         /// <summary>
         /// 图形的描边颜色。支持的颜色格式同 color，不支持回调函数。

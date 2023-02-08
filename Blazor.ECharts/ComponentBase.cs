@@ -16,12 +16,18 @@ namespace Blazor.ECharts
     public class ComponentBase<T> : ComponentBase, IAsyncDisposable where T : class
     {
         public string Id = "echerts_" + Guid.NewGuid().ToString("N");
+        private bool _isThemesRegistered = false;
         private DotNetObjectReference<ComponentBase<T>> _objectReference;
         /// <summary>
         /// 主题
         /// </summary>
         [Parameter]
         public string Theme { get; set; }
+        /// <summary>
+        /// The themes to register when initialising.
+        /// </summary>
+        [Parameter]
+        public IEnumerable<ThemeOption> Themes { get; set; }
         [Parameter]
         public EChartsOption<T> Option { get; set; }
         [Parameter]
@@ -164,6 +170,12 @@ namespace Blazor.ECharts
             {
                 IsPrerenderPhase = false;
 
+                if (!_isThemesRegistered && !IsPrerenderPhase)
+                {
+                    await JsInterop.RegisterThemes(Themes);
+                    _isThemesRegistered = true;
+                }
+
                 await SetupChartAsync();
 
                 if (OnRenderCompleted != null)
@@ -204,6 +216,16 @@ namespace Blazor.ECharts
         public void Refresh()
         {
             StateHasChanged();
+        }
+
+        public async Task SetTheme(string theme)
+        {
+            await JsInterop.SetTheme(Id, theme, Option, MergeOption);
+        }
+        
+        public async Task DispatchAction(EChartsDispatchAction act)
+        {
+            await JsInterop.DispatchAction(Id, act);
         }
 
         public async ValueTask DisposeAsync()

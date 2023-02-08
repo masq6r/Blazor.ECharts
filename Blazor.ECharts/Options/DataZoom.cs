@@ -13,5 +13,11 @@ namespace Blazor.ECharts.Options
         public bool Disabled { get; set; }
         public int[] XAxisIndex { get; set; }
         public int[] YAxisIndex { get; set; }
+        public TextStyle TextStyle { get; set; }
+        public string BackgroundColor { get; set; }
+        public string DataBackgroundColor { get; set; }
+        public string FillerColor { get; set; }
+        public string handleColor { get; set; }
+        public string handleSize { get; set; }
     }
 }

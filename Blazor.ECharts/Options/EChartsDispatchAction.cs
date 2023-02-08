@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Blazor.ECharts
+namespace Blazor.ECharts.Options
 {
     public class EChartsDispatchAction
     {
