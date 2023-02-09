@@ -135,7 +135,7 @@ namespace Blazor.ECharts
             var mergeString = EChartsOptionSerializer.Default.Serialize(mergeOpt);
             try
             {
-                await module.InvokeVoidAsync("echartsFunctions.setTheme", id, theme, optString, mergeString).ConfigureAwait(false);
+                await module.InvokeVoidAsync("echartsFunctions.setTheme", id, theme, optString, mergeString);
             }
             catch (Exception ex)
             {

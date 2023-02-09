@@ -42,14 +42,11 @@ export class echartsFunctions {
     }
     static setTheme(id, theme, option, mergeOpt) {
         const i = this.liChart.findIndex(c => c.Id === id);
-        if (i < 0) {
-            return;
-        } else {
-            this.liChart[i].Chart.dispose();
-            const chart = echarts.init(document.getElementById(id), theme);
-            this.liChart.splice(i, 1, { Id: id, Chart: chart });
-            this.setupChart(id, theme, option, mergeOpt);
-        }
+        if (i < 0) return;
+        this.liChart[i].Chart.dispose();
+        const chart = echarts.init(document.getElementById(id), theme);
+        this.liChart.splice(i, 1, { Id: id, Chart: chart });
+        this.setupChart(id, theme, option, mergeOpt);
     }
     static registerTheme(name, theme) {
         let opt = eval('(' + theme + ')');
