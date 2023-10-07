@@ -42,5 +42,8 @@ namespace Blazor.ECharts.Options.Series.Bar
         public Encode Encode { get; set; }
 
         public Emphasis Emphasis { set; get; }
+
+        public List<Dimension> Dimensions { set; get; }
+
     }
 }

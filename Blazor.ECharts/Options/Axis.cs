@@ -104,6 +104,13 @@ namespace Blazor.ECharts.Options
         public SplitArea SplitArea { set; get; }
 
         public bool Show { set; get; }
+
+        public int? Offset { get; set; }
+
+        public int? NameRotate { get; set; }
+
+        public int? NameGap { get; set; }
+
     }
     public record XAxis : Axis
     {
@@ -139,6 +146,8 @@ namespace Blazor.ECharts.Options
         public bool? HideOverlap { set; get; }
 
         public string FontFamily { set; get; }
+
+        public bool? Inside { set; get; }
 
         /// <summary>
         /// 刻度标签旋转的角度，在类目轴的类目标签显示不下的时候可以通过旋转防止标签之间重叠。

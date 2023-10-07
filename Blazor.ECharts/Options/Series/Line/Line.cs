@@ -166,6 +166,8 @@ namespace Blazor.ECharts.Options.Series.Line
         /// </summary>
         public MarkLine MarkLine { set; get; }
 
+        public List<Dimension> Dimensions { set; get; }
+
         public Encode Encode { set; get; }
     }
 }
