@@ -19,5 +19,7 @@ namespace Blazor.ECharts.Options
         public string FillerColor { get; set; }
         public string handleColor { get; set; }
         public string handleSize { get; set; }
+        public int StartValue { get; set; }
+        public int EndValue { get; set; }
     }
 }
