@@ -149,6 +149,10 @@ namespace Blazor.ECharts.Options
 
         public bool? Inside { set; get; }
 
+        public bool? ShowMinLabel { set; get; }
+
+        public bool? ShowMaxLabel { set; get; }
+
         /// <summary>
         /// 刻度标签旋转的角度，在类目轴的类目标签显示不下的时候可以通过旋转防止标签之间重叠。
         /// 旋转的角度从 -90 度到 90 度。
