@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,5 +12,7 @@ namespace Blazor.ECharts.Options.Series.Scatter
     public record Scatter : SeriesBase
     {
         public Scatter() : base("scatter") { }
+        public ItemStyle ItemStyle { set; get; }
+        public Tooltip Tooltip {set; get; }
     }
 }

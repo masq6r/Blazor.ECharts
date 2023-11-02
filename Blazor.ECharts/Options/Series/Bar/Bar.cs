@@ -27,16 +27,6 @@ namespace Blazor.ECharts.Options.Series.Bar
 
         public object LineStyle { set; get; }
 
-        /// <summary>
-        /// 使用的 x 轴的 index，在单个图表实例中存在多个 x 轴的时候有用。
-        /// </summary>
-        public int? XAxisIndex { set; get; }
-
-        /// <summary>
-        /// 使用的 y 轴的 index，在单个图表实例中存在多个 y轴的时候有用。
-        /// </summary>
-        public int? YAxisIndex { set; get; }
-
         public string BarWidth { get; set; }
 
         public Encode Encode { get; set; }

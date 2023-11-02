@@ -132,6 +132,7 @@ namespace Blazor.ECharts.Options
     {
         public bool? AlignWithLabel { set; get; }
         public bool? Show { set; get; }
+        public bool Inside { set; get; }
     }
     public record AxisLabel
     {

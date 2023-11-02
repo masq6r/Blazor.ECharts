@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +19,16 @@ namespace Blazor.ECharts.Options
         /// 组件 ID。默认不指定。指定则可用于在 option 或者 API 中引用组件。
         /// </summary>
         public string Id { set; get; }
+
+        /// <summary>
+        /// Axis index.
+        /// </summary>
+        public int XAxisIndex { set; get; }
+
+        /// <summary>
+        /// Axis index.
+        /// </summary>
+        public int YAxisIndex { set; get; }
 
         /// <summary>
         /// 数据类型
