@@ -9,5 +9,6 @@ namespace Blazor.ECharts
     public class MergeOption
     {
         public IEnumerable<string> ReplaceMerge { get; set; }
+        public bool NotMerge { get; set; }
     }
 }
