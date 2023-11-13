@@ -1,4 +1,4 @@
-﻿using Blazor.ECharts.Options.Enum;
+using Blazor.ECharts.Options.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +16,8 @@ namespace Blazor.ECharts.Options
         /// 是否显示提示框组件，包括提示框浮层和 axisPointer
         /// </summary>
         public bool? Show { set; get; }
+
+        public string Id { set; get; }
 
         /// <summary>
         /// 触发类型。

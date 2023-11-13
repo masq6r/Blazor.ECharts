@@ -83,12 +83,10 @@ namespace Blazor.ECharts
             {
                 await module.InvokeVoidAsync("echartsFunctions.setupChart", id, theme, option, notMerge);
             }
-            catch
+            catch(Exception ex)
             {
                 Console.WriteLine("id:" + id);
-                Console.WriteLine("theme:" + theme);
-                Console.WriteLine("option:" + option);
-                Console.WriteLine("notMerge:" + notMerge);
+                Console.WriteLine($"{ex.Message}");
             }
         }
 
@@ -103,12 +101,10 @@ namespace Blazor.ECharts
             {
                 await module.InvokeVoidAsync("echartsFunctions.setupChart", id, theme, option, optString);
             }
-            catch
+            catch(Exception ex)
             {
                 Console.WriteLine("id:" + id);
-                Console.WriteLine("theme:" + theme);
-                Console.WriteLine("option:" + option);
-                Console.WriteLine("notMerge:" + optString);
+                Console.WriteLine($"{ex.Message}");
             }
         }
 
