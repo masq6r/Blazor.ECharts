@@ -1,3 +1,4 @@
+using Blazor.ECharts.Options.Series;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,5 +75,8 @@ namespace Blazor.ECharts.Options
         public int? Zlevel { set; get; }
 
         public bool Silent { set; get; } = false;
+
+        public List<Dimension> Dimensions { set; get; }
+
     }
 }

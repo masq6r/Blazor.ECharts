@@ -23,7 +23,5 @@ namespace Blazor.ECharts.Options.Series.Candlestick
 
         public Encode Encode { set; get; }
 
-        public List<Dimension> Dimensions { set; get; }
-
     }
 }
