@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Blazor.ECharts.Options
 {
-    public record SeriesBase
+    public record Series3DBase
     {
-        public SeriesBase(string type, string id = null, string name = null)
+        public Series3DBase(string type, string id = null, string name = null)
         {
             Type = type;
             Id = id;
@@ -21,16 +21,6 @@ namespace Blazor.ECharts.Options
         public string Id { set; get; }
 
         /// <summary>
-        /// Axis index.
-        /// </summary>
-        public int XAxisIndex { set; get; }
-
-        /// <summary>
-        /// Axis index.
-        /// </summary>
-        public int YAxisIndex { set; get; }
-
-        /// <summary>
         /// 数据类型
         /// </summary>
         public string Type { set; get; } = "line";
@@ -40,25 +30,22 @@ namespace Blazor.ECharts.Options
         /// </summary>
         public string Name { set; get; }
 
+        public string CoordinateSystem { set; get; } = "cartesian3D";
+
         /// <summary>
-        /// 初始动画的延迟，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果。
-        /// <para>点击<see href="https://www.echartsjs.com/zh/option.html#series-bar.markPoint.animationDelay">此处</see>查看详细设置</para>
+        /// 是否开启动画。
         /// </summary>
-        public object AnimationDelay { set; get; }
-
-        public object AnimationDelayUpdate { set; get; }
-
         public bool Animation { set; get; } = true;
 
-        public double AnimationThreshold { set; get; } = 2000;
+        /// <summary>
+        /// 过渡动画的时长。
+        /// </summary>
+        public double AnimationDurationUpdate { set; get; } = 500;
 
-        public object AnimationDuration { set; get; }
-
-        public object AnimationDurationUpdate { set; get; }
-
-        public string AnimationEasing { set; get; } = "linear";
-
-        public string AnimationEasingUpdate { set; get; } = "cubicInOut";
+        /// <summary>
+        /// 过渡动画的缓动效果。
+        /// </summary>
+        public string AnimationEasingUpdate { set; get; } = "cubicOut";
 
         /// <summary>
         /// 系列中的数据内容数组。数组项通常为具体的数据项。
@@ -72,6 +59,12 @@ namespace Blazor.ECharts.Options
         /// <para>zlevel 大的 Canvas 会放在 zlevel 小的 Canvas 的上面。</para>
         /// </summary>
         public int? Zlevel { set; get; }
+
+        public int Grid3DIndex { set; get; } = 0;
+
+        public int Geo3DIndex { set; get; } = 0;
+
+        public int GlobeIndex { set; get; } = 0;
 
         public bool Silent { set; get; } = false;
     }

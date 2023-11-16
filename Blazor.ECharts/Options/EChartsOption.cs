@@ -34,10 +34,16 @@ namespace Blazor.ECharts.Options
         /// </summary>
         public List<XAxis> XAxis { set; get; }
 
+        public List<XAxis3D> XAxis3D { set; get; }
+
         /// <summary>
         /// 直角坐标系 grid 中的 y 轴，一般情况下单个 grid 组件最多只能放左右两个 y 轴，多于两个 y 轴需要通过配置 offset 属性防止同个位置多个 Y 轴的重叠。
         /// </summary>
         public List<YAxis> YAxis { set; get; }
+
+        public List<YAxis3D> YAxis3D { set; get; }
+
+        public List<ZAxis3D> ZAxis3D { set; get; }
 
         /// <summary>
         /// 系列列表。每个系列通过 type 决定自己的图表类型
@@ -60,6 +66,8 @@ namespace Blazor.ECharts.Options
         /// 直角坐标系内绘图网格，单个 grid 内最多可以放置上下两个 X 轴，左右两个 Y 轴。可以在网格上绘制折线图，柱状图，散点图（气泡图）。
         /// </summary>
         public List<Grid> Grid { set; get; }
+
+        public List<Grid3D> Grid3D { set; get; }
 
         /// <summary>
         /// dataZoom 组件 用于区域缩放，从而能自由关注细节的数据信息，或者概览数据整体，或者去除离群点的影响。

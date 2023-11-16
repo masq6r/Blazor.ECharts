@@ -111,6 +111,8 @@ namespace Blazor.ECharts.Options
 
         public int? NameGap { get; set; }
 
+        public TextStyle NameTextStyle { set; get; }
+
     }
     public record XAxis : Axis
     {
