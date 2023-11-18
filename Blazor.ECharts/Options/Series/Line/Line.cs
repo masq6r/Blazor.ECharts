@@ -126,11 +126,6 @@ namespace Blazor.ECharts.Options.Series.Line
         public object Smooth { set; get; }
 
         /// <summary>
-        /// 是否开启动画。
-        /// </summary>
-        public bool? Animation { set; get; }
-
-        /// <summary>
         /// 图表标域，常用于标记图表中某个范围的数据，例如标出某段时间投放了广告。
         /// </summary>
         public MarkArea MarkArea { set; get; }
@@ -155,8 +150,6 @@ namespace Blazor.ECharts.Options.Series.Line
         /// 图表标线。
         /// </summary>
         public MarkLine MarkLine { set; get; }
-
-        public List<Dimension> Dimensions { set; get; }
 
         public Encode Encode { set; get; }
     }

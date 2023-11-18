@@ -33,7 +33,5 @@ namespace Blazor.ECharts.Options.Series.Bar
 
         public Emphasis Emphasis { set; get; }
 
-        public List<Dimension> Dimensions { set; get; }
-
     }
 }
